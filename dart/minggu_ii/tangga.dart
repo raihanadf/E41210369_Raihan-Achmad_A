@@ -1,16 +1,12 @@
 import 'dart:io';
 
 void main(List<String> args) {
+  var simbol = "#";
+  var output = simbol;
+  var panjang = 7;
 
-  stdout.write("simbolnya mau gimana ngab:");
-  var simbol = stdin.readLineSync()!;
-
-  stdout.write("Input panjang ngab:");
-  var panjang = stdin.readLineSync();
-
-  for (var i = 0; i < int.parse(panjang!); i++) {
-    stdout.write("\n${simbol}");
-    simbol += simbol;
+  for (var i = 0; i < panjang; i++) {
+    stdout.write("\n${output}");
+    output += simbol;
   }
-
 }
