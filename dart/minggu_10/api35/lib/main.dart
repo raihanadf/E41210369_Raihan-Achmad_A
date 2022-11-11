@@ -9,6 +9,7 @@ class MoviesApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner:false,
       title: 'Movies App',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
@@ -158,12 +159,41 @@ class MovieDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String imageBaseUrl = 'https://image.tmdb.org/t/p/original';
     return Scaffold(
       appBar: AppBar(
         title: Text(movie.title),
       ),
-      body: Container(
-        child: Text(movie.overview),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.05,
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: Container(
+                height: 400,
+                child: CachedNetworkImage(
+                  imageUrl: imageBaseUrl + movie.posterPath,
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
+              ),
+            ),
+            SizedBox(
+              height: 24,
+            ),
+            Container(
+              child: Text(
+                movie.overview,
+                textAlign: TextAlign.center,
+              ),
+            ),
+            
+          ],
+        ),
       ),
     );
   }
