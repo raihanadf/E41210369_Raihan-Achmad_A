@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,12 +16,23 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        \App\Models\User::factory()->create([
-            'name' => 'Test User',
+        $user = User::factory()->create([
+            'name' => 'raihan',
+            'username' => 'sendmeabouquet',
             'email' => 'r@r',
-            'password' => bcrypt('r'),
+            'password' => "r"
         ]);
+
+        Category::factory()->create([
+            'name' => "shitpost",
+            'slug' => "Shitposting"
+        ]);
+
+        Category::factory()->create([
+            'name' => "curhat",
+            'slug' => "Curhatan Maut"
+        ]);
+
     }
+
 }
