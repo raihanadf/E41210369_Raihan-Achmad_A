@@ -32,7 +32,7 @@
 
             <footer class="flex justify-between items-center mt-8">
                 <div class="flex items-center text-sm">
-                    <img src="https://avatars.githubusercontent.com/u/{{ $post->author->id }}?v=4" alt="Lary avatar">
+                    <img src="https://avatars.githubusercontent.com/u/{{ $post->author->id }}?v=4" alt="Lary avatar" width="50" height="50" class="rounded-xl">
                     <div class="ml-3">
                         <h5 class="font-bold">
                             <a href="/?author={{ $post->author->username }}">{{ $post->author->name }}</a>
